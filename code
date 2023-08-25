@@ -1,0 +1,16 @@
+from pytube import YouTube
+
+def download_youtube_video(url, output_path):
+    try:
+        yt = YouTube(url)
+        video = yt.streams.get_highest_resolution()  # Choice your resolution
+        video.download(output_path)
+        print("Download sucessful!")
+    except Exception as e:
+        print("Download Error:", e)
+
+# Exemple
+video_url = "https://www.youtube.com/watch?v=Znzlv3TwRp8" 
+output_folder = "C:\\Users\\EkhardDev\Downloads\\videosconvertidos"
+download_youtube_video(video_url, output_folder)
+
